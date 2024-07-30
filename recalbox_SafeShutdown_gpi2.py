@@ -23,7 +23,7 @@ def poweroff():
 		os.system("shutdown -h now")
 def lcdrun():
 	while True:
-		os.system("/opt/RetroFlag/lcdnext.sh")
+		os.system("/userdata/RetroFlag/lcdnext.sh")
 		time.sleep(1)
 
 if __name__ == "__main__":
