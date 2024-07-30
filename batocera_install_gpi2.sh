@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SourcePath=https://raw.githubusercontent.com/RetroFlag/GPiCase2-Script/main
+SourcePath=https://raw.githubusercontent.com/swgamez/Retroflagshutdown/main
 
 #-----------------------------------------------------------
 sleep 2s
