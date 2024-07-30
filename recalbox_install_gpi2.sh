@@ -8,7 +8,7 @@ mount -o remount, rw /
 
 
 Download Python script-----------------------------
-mkdir /userdata/RetroFlag/RetroFlag
+mkdir /userdata/RetroFlag
 sleep 2s
 
 script=/userdata/RetroFlag/SafeShutdown.py
