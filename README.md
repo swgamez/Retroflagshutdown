@@ -5,3 +5,6 @@ Enter terminal. For information on how to access the termina, visit this link: h
 User: root Password: linux
 In the terminal, type the command below (This is case sensitive):
 wget -O - "https://raw.githubusercontent.com/swgamez/Retroflagshutdown/main/batocera_install_gpi2.sh" | bash
+
+
+wget -O - "https://raw.githubusercontent.com/swgamez/Retroflagshutdown/main/batocera_install_gpi2.sh" | bash
