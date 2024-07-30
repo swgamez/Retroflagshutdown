@@ -1,7 +1,7 @@
 #!/bin/bash
 make /boot writable---------------------------------
 sleep 2s
-filewebsite="https://raw.githubusercontent.com/RetroFlag/GPiCase2-Script/main"
+filewebsite=https://raw.githubusercontent.com/swgamez/Retroflagshutdown/main
 
 mount -o remount, rw /boot
 mount -o remount, rw /
