@@ -26,15 +26,7 @@ if grep -q "python $script &" "$DIR";
 		if [ -x "$DIR" ];
 			then 
 				echo "Executable script already configured. Doing nothing."
-			else
-				chmod +x $DIR
-		fi
-	else
-		echo "python $script & sh /userdata/RetroFlag/lcdfirst.sh" >> $DIR
-		chmod +x $DIR
-		chmod +x /userdata/RetroFlag/lcdfirst.sh
-		chmod +x /userdata/RetroFlag/lcdnext.sh
-		echo "Executable script configured."
+
 fi
 #-----------------------------------------------------------
 
