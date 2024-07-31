@@ -30,10 +30,6 @@ def poweroff():
 		#	time.sleep(0.5)
 		os.system("shutdown -h now")
 
-def lcdrun():
-	while True:
-		os.system("sh /userdata/RetroFlag/lcdnext.sh")
-		time.sleep(1)
 
 if __name__ == "__main__":
 	#initialize GPIO settings
@@ -41,10 +37,7 @@ if __name__ == "__main__":
 	#create a multiprocessing.Process instance for each function to enable parallelism 
 	powerProcess = Process(target = poweroff)
 	powerProcess.start()
-	lcdrunProcess = Process(target = lcdrun)
-	lcdrunProcess.start()
 
 	powerProcess.join()
-	lcdrunProcess.join()
 
 	GPIO.cleanup()
