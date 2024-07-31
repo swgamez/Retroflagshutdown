@@ -1,45 +1,40 @@
-import RPi.GPIO as GPIO
 import os
 import time
 from multiprocessing import Process
 
-#initialize pins
-#powerPin = 3 #pin 5
-#ledPin = 14 #TXD
-#resetPin = 2 #pin 13
-#powerenPin = 4 #pin 5
+import RPi.GPIO as GPIO
 
-powerPin = 26 
-powerenPin = 27 
+# initialize pins
+powerPin = 26
+powerenPin = 27
 
-#initialize GPIO settings
+
 def init():
-	GPIO.setmode(GPIO.BCM)
-	GPIO.setup(powerPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-	GPIO.setup(powerenPin, GPIO.OUT, initial=GPIO.HIGH)
-	GPIO.output(powerenPin, GPIO.HIGH)
-	GPIO.setwarnings(False)
+    # initialize GPIO settings
+    GPIO.setwarnings(False)
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(powerPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(powerenPin, GPIO.OUT)
+    GPIO.output(powerenPin, GPIO.HIGH)
 
-#waits for user to hold button up to 2 second before issuing poweroff command
+
 def poweroff():
-	while True:
-		#self.assertEqual(GPIO.input(powerPin), GPIO.LOW)
-		GPIO.wait_for_edge(powerPin, GPIO.FALLING)
-		#start = time.time()
-		#while GPIO.input(powerPin) == GPIO.HIGH:
-		#	time.sleep(0.5)
-		os.system("batocera-es-swissknife --emukill")
-		time.sleep(1)
-		os.system("shutdown -h now")
+    while True:
+        GPIO.wait_for_edge(powerPin, GPIO.FALLING)
+        # Wait 15 seconds (extra margin) and see if pin is still LOW
+        # If it's still LOW, it must be the power switch that toggled
+        time.sleep(15)
+        if not GPIO.input(powerPin):
+            os.system("poweroff")
 
 
 if __name__ == "__main__":
-	#initialize GPIO settings
-	init()
-	#create a multiprocessing.Process instance for each function to enable parallelism 
-	powerProcess = Process(target = poweroff)
-	powerProcess.start()
+    # initialize GPIO settings
+    init()
+    # create a multiprocessing.Process instance for each function to enable parallelism
+    powerProcess = Process(target=poweroff)
+    powerProcess.start()
 
-	powerProcess.join()
+    powerProcess.join()
 
-	GPIO.cleanup()
+    GPIO.cleanup()
