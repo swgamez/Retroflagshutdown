@@ -20,7 +20,7 @@ def init():
 	GPIO.output(powerenPin, GPIO.HIGH)
 	GPIO.setwarnings(False)
 
-#waits for user to hold button up to 1 second before issuing poweroff command
+#waits for user to hold button up to 2 second before issuing poweroff command
 def poweroff():
 	while True:
 		#self.assertEqual(GPIO.input(powerPin), GPIO.LOW)
@@ -28,6 +28,8 @@ def poweroff():
 		#start = time.time()
 		#while GPIO.input(powerPin) == GPIO.HIGH:
 		#	time.sleep(0.5)
+		os.system("batocera-es-swissknife --emukill")
+		time.sleep(1)
 		os.system("shutdown -h now")
 
 
