@@ -14,6 +14,8 @@ sleep 2s
 script=/userdata/RetroFlag/SafeShutdown.py
 
 wget -O  $script "$SourcePath/batocera_SafeShutdown_gpi2.py"
+wget -O  "/userdata/RetroFlag/lcdfirst.sh" "$SourcePath/batoceralcdfirst.sh"
+wget -O  "/userdata/RetroFlag/lcdnext.sh" "$SourcePath/batoceralcdnext.sh"
 #-----------------------------------------------------------
 
 sleep 2s
