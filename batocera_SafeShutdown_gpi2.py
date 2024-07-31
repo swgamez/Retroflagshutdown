@@ -4,13 +4,13 @@ import time
 from multiprocessing import Process
 
 #initialize pins
-#powerPin = 3 #pin 5
+powerPin = 3 #pin 5
 #ledPin = 14 #TXD
 #resetPin = 2 #pin 13
-#powerenPin = 4 #pin 5
+powerenPin = 4 #pin 5
 
-powerPin = 26 
-powerenPin = 27 
+#powerPin = 26 
+#powerenPin = 27 
 
 #initialize GPIO settings
 def init():
