@@ -23,8 +23,6 @@ def poweroff():
 	while True:
 		GPIO.wait_for_edge(powerPin, GPIO.FALLING)
 			os.system("batocera-es-swissknife --emukill")
-			os.system("batocera-es-swissknife --shutdown")
-		else:
 			os.system("shutdown -h now")
 
 if __name__ == "__main__":
