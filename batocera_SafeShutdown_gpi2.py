@@ -8,7 +8,7 @@ powerPin = 26
 
 #initialize GPIO settings
 def init():
-	GPIO.setmode(GPIO.BCM)
+	GPIO.setmode(GPIO)
 	GPIO.setup(powerPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 	GPIO.setwarnings(False)
 
