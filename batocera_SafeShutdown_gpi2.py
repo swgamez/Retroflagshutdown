@@ -31,11 +31,6 @@ if __name__ == "__main__":
 	init()
 	#create a multiprocessing.Process instance for each function to enable parallelism 
 	powerProcess = Process(target = poweroff)
-	powerProcess.start()
-	ledProcess = Process(target = ledBlink)
-	ledProcess.start()
-	resetProcess = Process(target = reset)
-	resetProcess.start()
 
 	powerProcess.join()
 	ledProcess.join()
