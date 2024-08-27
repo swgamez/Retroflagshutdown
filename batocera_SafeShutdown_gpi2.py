@@ -12,7 +12,7 @@ powerPin = 26
 def init():
 	GPIO.setmode(GPIO.BCM)
 	GPIO.setup(powerenPin, GPIO.OUT, initial=GPIO.HIGH)
-	GPIO.setup(powerPin, GPIO.IN, initial=GPIO.LOW)
+	GPIO.setup(powerPin, GPIO.IN, initial=GPIO.HIGH)
 
 #waits for user to hold button up to 1 second before issuing poweroff command
 def poweroff():
