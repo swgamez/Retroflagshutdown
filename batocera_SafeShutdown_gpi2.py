@@ -6,15 +6,11 @@ import RPi.GPIO as GPIO
 
 powerPin = 26
 powerenPin = 27
-hdmiPin = 18
 
 #initialize GPIO settings
 def init():
 	GPIO.setmode(GPIO.BCM)
 	GPIO.setup(powerPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-	GPIO.setup(resetPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-	GPIO.setup(ledPin, GPIO.OUT, initial=GPIO.HIGH)
-	GPIO.output(ledPin, GPIO.HIGH)
 	GPIO.setup(powerenPin, GPIO.OUT, initial=GPIO.HIGH)
 	GPIO.output(powerenPin, GPIO.HIGH)
 	GPIO.setwarnings(False)
