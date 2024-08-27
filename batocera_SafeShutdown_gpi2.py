@@ -13,6 +13,7 @@ def init():
 	GPIO.setmode(GPIO.BCM)
 	GPIO.setup(powerenPin, GPIO.OUT, initial=GPIO.HIGH)
 	GPIO.setup(powerPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+	GPIO.output(powerenPin, GPIO.HIGH)
 	GPIO.setwarnings(False)
 
 #waits for user to hold button up to 1 second before issuing poweroff command
