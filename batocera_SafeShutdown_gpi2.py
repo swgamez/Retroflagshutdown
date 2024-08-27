@@ -5,7 +5,6 @@ import RPi.GPIO as GPIO
 # initialize pins
 
 
-powerPin = 26 
 powerenPin = 27 
 
 #initialize GPIO settings
