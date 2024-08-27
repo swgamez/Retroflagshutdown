@@ -8,22 +8,28 @@ import RPi.GPIO as GPIO
 powerenPin = 27 
 powerPin = 26 
 
-#initialize GPIO settings
 def init():
 	GPIO.setmode(GPIO.BCM)
-	GPIO.setup(powerenPin, GPIO.OUT, initial=GPIO.HIGH)
 	GPIO.setup(powerPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+	GPIO.setup(resetPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+	GPIO.setup(ledPin, GPIO.OUT, initial=GPIO.HIGH)
+	GPIO.output(ledPin, GPIO.HIGH)
+	GPIO.setup(powerenPin, GPIO.OUT, initial=GPIO.HIGH)
 	GPIO.output(powerenPin, GPIO.HIGH)
 	GPIO.setwarnings(False)
 
 #waits for user to hold button up to 1 second before issuing poweroff command
 def poweroff():
 	while True:
-	        GPIO.wait_for_edge(powerPin, GPIO.FALLING)
+		#self.assertEqual(GPIO.input(powerPin), GPIO.LOW)
+		#GPIO.wait_for_edge(powerPin, GPIO.FALLING)
+		start = time.time()
+		while GPIO.input(powerPin) == GPIO.HIGH:
+			time.sleep(0.5)
 		os.system("batocera-es-swissknife --emukill")
-		time.sleep(2)
-		os.system("shutdown -h now")
-		
+		os.system("shutdown -r now")
+
+
 if __name__ == "__main__":
 	#initialize GPIO settings
 	init()
@@ -31,6 +37,8 @@ if __name__ == "__main__":
 	powerProcess = Process(target = poweroff)
 	powerProcess.start()
 
+
 	powerProcess.join()
+
 
 	GPIO.cleanup()
