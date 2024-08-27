@@ -18,7 +18,7 @@ def init():
 def poweroff():
 	while True:
 		#self.assertEqual(GPIO.input(powerPin), GPIO.LOW)
-		GPIO.wait_for_edge(powerPin, GPIO.FALLING)
+		GPIO.wait_for_edge(powerPin, GPIO.LOW)
 		#start = time.time()
 		#while GPIO.input(powerPin) == GPIO.HIGH:
 		#	time.sleep(0.5)
