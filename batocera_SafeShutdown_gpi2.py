@@ -29,4 +29,6 @@ if __name__ == "__main__":
 	powerProcess = Process(target = poweroff)
 	powerProcess.start()
 
+	powerProcess.join()
+
 	GPIO.cleanup()
