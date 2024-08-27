@@ -6,7 +6,6 @@ import RPi.GPIO as GPIO
 
 
 powerenPin = 27 
-powerPin = 26
 
 #initialize GPIO settings
 def init():
