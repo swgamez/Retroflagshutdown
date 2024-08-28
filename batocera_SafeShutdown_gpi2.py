@@ -1,13 +1,12 @@
-import os
-from multiprocessing import Process
 import RPi.GPIO as GPIO
+import os
+import time
+from multiprocessing import Process
 
-# initialize pins
-
-
-powerenPin = 27 
 powerPin = 26 
+powerenPin = 27 
 
+#initialize GPIO settings
 def init():
 	GPIO.setmode(GPIO.BCM)
 	GPIO.setup(powerPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -18,11 +17,19 @@ def init():
 #waits for user to hold button up to 1 second before issuing poweroff command
 def poweroff():
 	while True:
+		#self.assertEqual(GPIO.input(powerPin), GPIO.LOW)
 		GPIO.wait_for_edge(powerPin, GPIO.FALLING)
-			time.sleep(0.5)
+		#start = time.time()
+		#while GPIO.input(powerPin) == GPIO.HIGH:
+		#	time.sleep(0.5)
 		os.system("batocera-es-swissknife --emukill")
-		os.system("shutdown -r now")
+		time.sleep(1)
+		os.system("shutdown -h now")
 
+def lcdrun():
+	while True:
+		os.system("sh /userdata/RetroFlag/lcdnext.sh")
+		time.sleep(1)
 
 if __name__ == "__main__":
 	#initialize GPIO settings
@@ -33,6 +40,5 @@ if __name__ == "__main__":
 
 
 	powerProcess.join()
-
 
 	GPIO.cleanup()
