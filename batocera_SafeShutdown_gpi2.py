@@ -22,11 +22,6 @@ def poweroff():
 		time.sleep(1)
 		os.system("shutdown -h now")
 
-def lcdrun():
-	while True:
-		os.system("sh /userdata/RetroFlag/lcdnext.sh")
-		time.sleep(1)
-
 if __name__ == "__main__":
 	#initialize GPIO settings
 	init()
