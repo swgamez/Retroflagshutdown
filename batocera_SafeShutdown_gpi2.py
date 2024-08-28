@@ -18,14 +18,9 @@ def init():
 def poweroff():
 	while True:
 		GPIO.wait_for_edge(powerPin, GPIO.FALLING)
-		output = int(subprocess.check_output(['batocera-es-swissknife', '--espid']))
- 		output_rc = int(subprocess.check_output(['batocera-es-swissknife', '--emupid']))
- 		if output_rc:
-			os.system("batocera-es-swissknife --emukill")
- 		elif output:
-			os.system("batocera-es-swissknife --shutdown")
-		else:
-			os.system("shutdown -r now")
+		os.system("batocera-es-swissknife --emukill")
+		time.sleep(2)
+		os.system("shutdown -h now")
 
 if __name__ == "__main__":
 	#initialize GPIO settings
