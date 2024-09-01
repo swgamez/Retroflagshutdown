@@ -1,10 +1,25 @@
+#!/usr/bin/env python
+
+# This script has been created using the following as a reference:
+# https://github.com/RetroFlag/GPiCase2-Script
+# And, Pull Request #4 "lakka patch & safe shutdown script & audio fix"
+# https://github.com/RetroFlag/GPiCase2-Script/pull/4
+#
+# Currently, lcdrun() and audiofix() are disabled.
+
 import RPi.GPIO as GPIO
 import os
 import time
 from multiprocessing import Process
 
-powerPin = 26 
-powerenPin = 27 
+#initialize pins
+#powerPin = 26 #pin 5
+#ledPin = 14 #TXD
+#resetPin = 2 #pin 13
+#powerenPin = 27 #pin 5
+
+powerPin = 26
+powerenPin = 27
 
 #initialize GPIO settings
 def init():
@@ -17,10 +32,14 @@ def init():
 #waits for user to hold button up to 1 second before issuing poweroff command
 def poweroff():
 	while True:
+		#self.assertEqual(GPIO.input(powerPin), GPIO.LOW)
 		GPIO.wait_for_edge(powerPin, GPIO.FALLING)
-		os.system("batocera-es-swissknife --emukill")
-		time.sleep(2)
-		os.system("shutdown -h now")
+		#start = time.time()
+		#while GPIO.input(powerPin) == GPIO.HIGH:
+		#	time.sleep(0.5)
+		os.system("systemctl stop retroarch")
+		time.sleep(1)
+		os.system("systemctl poweroff")
 
 if __name__ == "__main__":
 	#initialize GPIO settings
