@@ -3,8 +3,6 @@ import os
 import time
 from multiprocessing import Process
 
-#initialize pins
-
 powerPin = 26 
 powerenPin = 27 
 
@@ -12,7 +10,7 @@ powerenPin = 27
 def init():
 	GPIO.setmode(GPIO.BCM)
 	GPIO.setup(powerPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-	GPIO.setup(powerenPin, GPIO.OUT)
+	GPIO.setup(powerenPin, GPIO.OUT, initial=GPIO.HIGH)
 	GPIO.output(powerenPin, GPIO.HIGH)
 	GPIO.setwarnings(False)
 
@@ -20,11 +18,9 @@ def init():
 def poweroff():
 	while True:
 		GPIO.wait_for_edge(powerPin, GPIO.FALLING)
+		os.system("batocera-es-swissknife --emukill")
+		time.sleep(2)
 		os.system("shutdown -h now")
-def lcdrun():
-	while True:
-		os.system("/userdata/RetroFlag/lcdnext.sh")
-		time.sleep(1)
 
 if __name__ == "__main__":
 	#initialize GPIO settings
@@ -32,10 +28,8 @@ if __name__ == "__main__":
 	#create a multiprocessing.Process instance for each function to enable parallelism 
 	powerProcess = Process(target = poweroff)
 	powerProcess.start()
-	lcdrunProcess = Process(target = lcdrun)
-	lcdrunProcess.start()
+
 
 	powerProcess.join()
-	lcdrunProcess.join()
 
 	GPIO.cleanup()
