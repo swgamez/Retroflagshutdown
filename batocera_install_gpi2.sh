@@ -19,7 +19,7 @@ wget -O  $script "$SourcePath/batocera_SafeShutdown_gpi2.py"
 sleep 2s
 DIR=/userdata/system/custom.sh
 
-if grep -q "python3 $script" "$DIR";
+if grep -q "python $script" "$DIR";
 	then
 		if [ -x "$DIR" ];
 			then 
