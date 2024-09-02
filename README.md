@@ -9,4 +9,4 @@ In the terminal, type the command below (This is case sensitive):
 wget -O - "https://raw.githubusercontent.com/swgamez/Retroflagshutdown/main/batocera_install_gpi2.sh" | bash
 
 
-wget -O - "https://raw.githubusercontent.com/swgamez/Retroflagshutdown/main/recalbox_install_gpi2.sh" | bash
+wget -O - "https://raw.githubusercontent.com/swgamez/Retroflagshutdown/main/retropie_install_gpi2.sh" | bash
