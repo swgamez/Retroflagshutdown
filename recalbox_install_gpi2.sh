@@ -7,7 +7,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 #-----------------------------------------------------------
 
-SourcePath=https://gitee.com/clock333mhz/GPiCase2-Script/raw/cn_main
+SourcePath=https://raw.githubusercontent.com/swgamez/Retroflagshutdown/main
 
 #-----------------------------------------------------------
 sleep 2s
