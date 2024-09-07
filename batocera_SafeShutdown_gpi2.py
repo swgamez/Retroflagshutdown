@@ -17,11 +17,10 @@ def init():
 #waits for user to hold button up to 1 second before issuing poweroff command
 def poweroff():
 	while True:
-		#self.assertEqual(GPIO.input(powerPin), GPIO.LOW)
 		GPIO.wait_for_edge(powerPin, GPIO.FALLING)
 		os.system("batocera-es-swissknife --emukill")
-		time.sleep(0.5)
-		os.system("shutdown")
+		time.sleep(1)
+		os.system("shutdown -h now")
 
 if __name__ == "__main__":
 	#initialize GPIO settings
