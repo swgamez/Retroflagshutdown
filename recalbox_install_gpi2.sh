@@ -16,13 +16,13 @@ mount -o remount, rw /flash
 mount -o remount, rw /
 
 #Download Python script-----------------------------
-mkdir /storage/.RetroFlag/
+mkdir /userdata/RetroFlag/
 sleep 2s
 script=/storage/.RetroFlag/SafeShutdown.py
 
 wget -O  $script "$SourcePath/lakka_SafeShutdown_gpi2.py"
-wget -O  "/storage/.RetroFlag/lcdfirst.sh" "$SourcePath/lakkalcdfirst.sh"
-wget -O  "/storage/.RetroFlag/lcdnext.sh" "$SourcePath/lakkalcdnext.sh"
+wget -O  "/userdata/RetroFlag/lcdfirst.sh" "$SourcePath/lcdfirst.sh"
+wget -O  "/userdata/RetroFlag/lcdnext.sh" "$SourcePath/lcdnext.sh"
 #-----------------------------------------------------------
 
 sleep 2s
