@@ -18,7 +18,7 @@ mount -o remount, rw /
 #Download Python script-----------------------------
 mkdir /userdata/RetroFlag/
 sleep 2s
-script=/storage/.RetroFlag/SafeShutdown.py
+script=/userdata/RetroFlag/SafeShutdown.py
 
 wget -O  $script "$SourcePath/lakka_SafeShutdown_gpi2.py"
 wget -O  "/userdata/RetroFlag/lcdfirst.sh" "$SourcePath/lcdfirst.sh"
