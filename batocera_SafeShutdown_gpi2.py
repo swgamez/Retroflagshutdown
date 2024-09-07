@@ -18,7 +18,7 @@ def init():
 def poweroff():
 	while True:
 		#self.assertEqual(GPIO.input(powerPin), GPIO.LOW)
-		GPIO.wait_for_edge(powerPin, GPIO.LOW)
+		GPIO.wait_for_edge(powerPin, GPIO.FALLING)
 		os.system("batocera-es-swissknife --emukill")
 		time.sleep(0.5)
 		os.system("shutdown")
