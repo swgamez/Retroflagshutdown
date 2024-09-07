@@ -20,7 +20,7 @@ mkdir /userdata/RetroFlag/
 sleep 2s
 script=/userdata/RetroFlag/SafeShutdown.py
 
-wget -O  $script "$SourcePath/lakka_SafeShutdown_gpi2.py"
+wget -O  $script "$SourcePath/recalbox_SafeShutdown_gpi2.py"
 wget -O  "/userdata/RetroFlag/lcdfirst.sh" "$SourcePath/lcdfirst.sh"
 wget -O  "/userdata/RetroFlag/lcdnext.sh" "$SourcePath/lcdnext.sh"
 #-----------------------------------------------------------
