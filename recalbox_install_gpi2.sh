@@ -46,7 +46,7 @@ if grep -q "python $script &" "$DIR";
 fi
 #-----------------------------------------------------------
 
-echo "RetroFlag Pi Case Switch installation done. Will now reboot after 3 seconds."
+echo "RetroFlag GPI2 Case Switch installation done. Will now reboot after 3 seconds."
 sleep 3
-systemctl reboot
+shutdown -r now
 #-----------------------------------------------------------
