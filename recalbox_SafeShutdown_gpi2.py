@@ -17,10 +17,25 @@ def init():
 #waits for user to hold button up to 1 second before issuing poweroff command
 def poweroff():
 	while True:
+		#self.assertEqual(GPIO.input(powerPin), GPIO.LOW)
 		GPIO.wait_for_edge(powerPin, GPIO.FALLING)
-		os.system("batocera-es-swissknife --emukill")
-		time.sleep(2)
-		os.system("shutdown")
+		#start = time.time()
+		#while GPIO.input(powerPin) == GPIO.HIGH:
+		#	time.sleep(0.5)
+		os.system("systemctl stop retroarch")
+		time.sleep(1)
+		os.system("systemctl poweroff")
+
+def lcdrun():
+	while True:
+		os.system("sh /userdata/RetroFlag/lcdnext.sh")
+		time.sleep(1)
+
+def audiofix():
+	while True:
+		time.sleep(0.5)
+		os.system("systemctl restart retroarch")
+		break
 
 if __name__ == "__main__":
 	#initialize GPIO settings
@@ -28,8 +43,13 @@ if __name__ == "__main__":
 	#create a multiprocessing.Process instance for each function to enable parallelism 
 	powerProcess = Process(target = poweroff)
 	powerProcess.start()
-
-
+	lcdrunProcess = Process(target = lcdrun)
+	lcdrunProcess.start()
+	audiofixProcess = Process(target = audiofix)
+	audiofixProcess.start()
+	
 	powerProcess.join()
+	lcdrunProcess.join()
+	audiofixProcess.join()
 
 	GPIO.cleanup()
