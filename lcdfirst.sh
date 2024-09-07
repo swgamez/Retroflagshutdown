@@ -1,4 +1,3 @@
-
 HDMI_HPD=18 
 
 echo $HDMI_HPD > /sys/class/gpio/export
@@ -15,8 +14,8 @@ else
 fi
   
 echo "ISLCDFILE=""$ISLCDFILE"
-if [ $HDMI_HPD_VALUE == "1" ]; then
-	if [ $ISLCDFILE == "1" ]; then  
+if [ "1" = $HDMI_HPD_VALUE  ]; then
+	if [ "1" = $ISLCDFILE ]; then  
 		mount -o remount, rw /boot
 		mount -o remount, rw /	 
 		rm -f /boot/config_lcd.txt
@@ -27,7 +26,7 @@ if [ $HDMI_HPD_VALUE == "1" ]; then
 		sleep 10     
   fi
 else
-	if [ $ISLCDFILE == "0" ]; then 
+	if [ "0" = $ISLCDFILE ]; then 
 		mount -o remount, rw /boot
 		mount -o remount, rw /	 
 		rm -f /boot/config_hdmi.txt
@@ -38,4 +37,3 @@ else
 		sleep 10      
   fi
 fi
-   
