@@ -22,9 +22,9 @@ def poweroff():
 		#start = time.time()
 		#while GPIO.input(powerPin) == GPIO.HIGH:
 		#	time.sleep(0.5)
-		os.system("systemctl stop retroarch")
+		os.system("batocera-es-swissknife --emukill")
 		time.sleep(1)
-		os.system("systemctl poweroff")
+		os.system("shutdown -h now")
 
 def lcdrun():
 	while True:
