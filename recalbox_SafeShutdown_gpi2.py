@@ -34,7 +34,7 @@ def lcdrun():
 def audiofix():
 	while True:
 		time.sleep(0.5)
-		os.system("systemctl restart retroarch")
+		os.system("batocera-es-swissknife --restart")
 		break
 
 if __name__ == "__main__":
