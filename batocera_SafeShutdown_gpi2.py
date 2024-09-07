@@ -21,15 +21,10 @@ def poweroff():
 		GPIO.wait_for_edge(powerPin, GPIO.FALLING)
 		#start = time.time()
 		#while GPIO.input(powerPin) == GPIO.HIGH:
-		#	time.sleep(0.5)
+		#	time.sleep(0.9)
 		os.system("batocera-es-swissknife --emukill")
 		time.sleep(1)
 		os.system("shutdown -h now")
-
-def lcdrun():
-	while True:
-		os.system("sh /userdata/RetroFlag/lcdnext.sh")
-		time.sleep(1)
 
 if __name__ == "__main__":
 	#initialize GPIO settings
@@ -37,10 +32,7 @@ if __name__ == "__main__":
 	#create a multiprocessing.Process instance for each function to enable parallelism 
 	powerProcess = Process(target = poweroff)
 	powerProcess.start()
-	lcdrunProcess = Process(target = lcdrun)
-	lcdrunProcess.start()
 
 	powerProcess.join()
-	lcdrunProcess.join()
 
 	GPIO.cleanup()
