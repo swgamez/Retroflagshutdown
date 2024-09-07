@@ -27,7 +27,7 @@ wget -O  "/userdata/RetroFlag/lcdnext.sh" "$SourcePath/lcdnext.sh"
 
 sleep 2s
 # DIR=/userdata/system/custom.sh
-DIR=/userdata/system/autostart.sh
+DIR=/userdata/system/custom.sh
 
 if grep -q "python $script &" "$DIR";
 	then
