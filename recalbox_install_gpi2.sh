@@ -38,10 +38,10 @@ if grep -q "python $script &" "$DIR";
 				chmod +x $DIR
 		fi
 	else
-		echo "python $script & sh /storage/.RetroFlag/lcdfirst.sh" >> $DIR
+		echo "python $script & sh /userdata/system/lcdfirst.sh" >> $DIR
 		chmod +x $DIR
-		chmod +x /storage/.RetroFlag/lcdfirst.sh
-		chmod +x /storage/.RetroFlag/lcdnext.sh
+		chmod +x /userdata/system/lcdfirst.sh
+		chmod +x /userdata/system/lcdnext.sh
 		echo "Executable script configured."
 fi
 #-----------------------------------------------------------
