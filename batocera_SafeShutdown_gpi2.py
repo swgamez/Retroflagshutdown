@@ -9,7 +9,7 @@ powerenPin = 27
 #initialize GPIO settings
 def init():
 	GPIO.setmode(GPIO.BCM)
-	GPIO.setup(powerPin, GPIO.IN, pull_up_down=GPIO.BOTH)
+	GPIO.setup(powerPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 	GPIO.setup(powerenPin, GPIO.OUT, initial=GPIO.HIGH)
 	GPIO.output(powerenPin, GPIO.HIGH)
 	GPIO.setwarnings(False)
@@ -18,7 +18,7 @@ def init():
 def poweroff():
 	while True:
 		#self.assertEqual(GPIO.input(powerPin), GPIO.LOW)
-		GPIO.setup(powerPin, GPIO.LOW)
+		GPIO.wait_for_edge(powerPin, GPIO.LOW)
 		os.system("batocera-es-swissknife --emukill")
 		time.sleep(0.5)
 		os.system("shutdown")
