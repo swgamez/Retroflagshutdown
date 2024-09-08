@@ -8,6 +8,19 @@ if [[ $EUID -ne 0 ]]; then
 fi
 #-----------------------------------------------------------
 
+#Step 2) Download Python script-----------------------------
+cd /etc/modprobe.d
+wget --no-check-certificate -O  "alsa-base.conf" "$filewebsite""/alsa-base.conf"
+
+fi
+#-----------------------------------------------------------
+
+#Step 2) Download Python script-----------------------------
+cd /etc/modprobe.d
+wget --no-check-certificate -O  "alsa-base.conf" "$filewebsite""/alsa-base.conf"
+
+fi
+#-----------------------------------------------------------
 
 #Step 2) Download Python script-----------------------------
 cd /etc/modprobe.d
