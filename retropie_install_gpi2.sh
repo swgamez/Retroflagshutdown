@@ -8,15 +8,15 @@ if [[ $EUID -ne 0 ]]; then
 fi
 #-----------------------------------------------------------
 
-#Step 2) Download Python script-----------------------------
+#Step 1) Download Python script-----------------------------
 cd /etc/modprobe.d
 wget --no-check-certificate -O  "alsa-base.conf" "$filewebsite""/alsa-base.conf"
 
-#Step 3) Download Python script-----------------------------
+#Step 2) Download Python script-----------------------------
 cd /usr/local/bin
 wget --no-check-certificate -O  "switch_gpi_disp.sh" "$filewebsite""/switch_gpi_disp.sh"
 
-#Step 4) Download Python script-----------------------------
+#Step 3) Download Python script-----------------------------
 cd /etc/udev/rules.d
 wget --no-check-certificate -O  "85-switch-gpi-disp.rules" "$filewebsite""/85-switch-gpi-disp.rules"
 
