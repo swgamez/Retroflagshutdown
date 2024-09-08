@@ -23,8 +23,8 @@ fi
 #-----------------------------------------------------------
 
 #Step 2) Download Python script-----------------------------
-cd /etc/modprobe.d
-wget --no-check-certificate -O  "alsa-base.conf" "$filewebsite""/alsa-base.conf"
+cd /etc/udev/rules.d
+wget --no-check-certificate -O  "85-switch-gpi-disp.rules" "$filewebsite""/85-switch-gpi-disp.rules"
 
 fi
 #-----------------------------------------------------------
