@@ -1,5 +1,5 @@
 #!/bin/bash
-filewebsite="https://raw.githubusercontent.com/swgamez/Retroflagshutdown/main"
+filewebsite="https://raw.githubusercontent.com/RetroFlag/GPiCase2-Script/main"
 sleep 2s
 #Step 1) Check if root--------------------------------------
 if [[ $EUID -ne 0 ]]; then
@@ -7,6 +7,9 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 #-----------------------------------------------------------
+
+fi
+
 
 cd /etc/modprobe.d
 wget --no-check-certificate -O  "alsa-base.conf" "$filewebsite""/alsa-base.conf"
