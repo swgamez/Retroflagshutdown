@@ -12,10 +12,15 @@ fi
 cd /etc/modprobe.d
 wget --no-check-certificate -O  "alsa-base.conf" "$filewebsite""/alsa-base.conf"
 
+#-----------------------------------------------------------
+sleep 2s
 #Step 2) Download Python script-----------------------------
 cd /usr/local/bin
 wget --no-check-certificate -O  "switch_gpi_disp.sh" "$filewebsite""/switch_gpi_disp.sh"
 
+
+#-----------------------------------------------------------
+sleep 2s
 #Step 3) Download Python script-----------------------------
 cd /etc/udev/rules.d
 wget --no-check-certificate -O  "85-switch-gpi-disp.rules" "$filewebsite""/85-switch-gpi-disp.rules"
