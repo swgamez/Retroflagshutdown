@@ -1,5 +1,5 @@
 #!/bin/bash
-filewebsite="https://raw.githubusercontent.com/RetroFlag/GPiCase2-Script/main"
+filewebsite="https://raw.githubusercontent.com/swgamez/Retroflagshutdown/main"
 sleep 2s
 #Step 1) Check if root--------------------------------------
 if [[ $EUID -ne 0 ]]; then
