@@ -10,3 +10,6 @@ wget -O - "https://raw.githubusercontent.com/swgamez/Retroflagshutdown/main/bato
 
 
 wget -O - "https://raw.githubusercontent.com/swgamez/Retroflagshutdown/main/recalbox_install_gpi2.sh" | bash
+
+
+wget -O - "https://raw.githubusercontent.com/swgamez/Retroflagshutdown/main/recalbox_install_gpi2.sh" | bash
